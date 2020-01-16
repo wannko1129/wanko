@@ -1,0 +1,24 @@
+<!doctype HTML>
+<html>
+<!-- A-Frame ライブラリの読み込み -->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<!-- AR.js ライブラリの読み込み -->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<body style='margin:0px; overflow:hidden;'>
+<!-- ここからA-Frame -->
+<a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
+    <!-- オブジェクトファイルとマテリアルファイルを読み込む -->
+    <a-assets>
+        <a-asset-item id="hrt-obj" src="model_obj/hrt/hrt.obj"></a-asset-item>
+        <a-asset-item id="hrt-mtl" src="model_obj/hrt/hrt.mtl"></a-asset-item>
+    </a-assets>
+　　　　　　　　<!-- ARの場所 -->
+    <a-marker preset='custam'type='pattern'url="img/qestion-marker.patt">
+        <a-obj-model id="pattem" src="#hrt-obj" mtl="#hrt-mtl" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0"></a-obj-model>
+    </a-marker>
+    <!-- ar カメラ必要。 -->
+    <a-entity camera></a-entity>
+</a-scene>
+<!-- ここでA-Frameおわり -->
+</body>
+</html>
